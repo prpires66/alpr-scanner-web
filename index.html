@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ALPR Scanner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Plate<span>Scanner</span></h1>
+            <p>Point at a license plate and capture</p>
+        </header>
+
+        <main>
+            <div class="camera-container">
+                <video id="cameraStream" autoplay playsinline></video>
+                <div class="camera-overlay">
+                    <div class="focus-frame"></div>
+                </div>
+                <div id="loadingOverlay" class="loading-overlay hidden">
+                    <div class="spinner"></div>
+                    <span>Processing...</span>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="captureBtn" class="capture-btn" aria-label="Capture Plate">
+                    <div class="inner-circle"></div>
+                </button>
+            </div>
+
+            <div class="history-section">
+                <h2>Recent Scans</h2>
+                <div id="historyList" class="history-list">
+                    <!-- History items will be injected here -->
+                    <div class="empty-state">No plates scanned yet.</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Hidden canvas for capturing frames -->
+    <canvas id="captureCanvas" class="hidden"></canvas>
+
+    <script src="app.js"></script>
+</body>
+</html>
